@@ -1,6 +1,6 @@
 <template>
   <div style="justify-content:center">
-    <text class="label">Vue.js Star Count</text>
+    <text class="label">Vue.js Star Counts</text>
     <text class="count">{{count}}</text>
   </div>
 </template>
@@ -14,17 +14,17 @@ export default {
     }
   },
   created () {
-    // stream.fetch({
-    //   method: 'GET',
-    //   type: 'json',
-    //   url: 'https://api.douban.com/v2/book/4866934'
-    // }, res => {
-    //   if (res.ok) {
-    //     this.count = res.data.author
-    //   } else {
-    //     this.count = '- unknown -'
-    //   }
-    // })
+    stream.fetch({
+      method: 'GET',
+      type: 'json',
+      url: 'https://api.douban.com/v2/book/4866934'
+    }, res => {
+      if (res.ok) {
+        this.count = res.data.author
+      } else {
+        this.count = '- unknown -'
+      }
+    })
   }
 }
 </script>

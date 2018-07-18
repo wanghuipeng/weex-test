@@ -50,7 +50,15 @@ const config = {
         // In our experience, they generally work as expected,
         // just be aware of this issue when enabling this option.
         cssSourceMap: false,
-        proxyTable: {},
+        //proxyTable: {},
+        '/api': {
+            target: 'https://api.douban.com/v2',
+            secure: false,
+            changeOrigin: true,
+            pathRewrite: {
+                '^/api': ''
+            }
+        },
         autoOpenBrowser: false,
         errorOverlay: true,
         notifyOnErrors: true,

@@ -12,16 +12,9 @@
 </template>
 
 <script>
-const navigator = weex.requireModule('navigator')
 const stream = weex.requireModule('stream')
 // only for weex online playground (dotwe.org)
-function createURL (hash) {
-  if (WXEnvironment.platform === 'Web') {
-    return `http://dotwe.org/raw/htmlVue/${hash}`
-  }
-  const url = `http://dotwe.org/raw/dist/${hash}.bundle.wx`
-  return `${url}?_wx_tpl=${url}`
-}
+
 export default {
   data () {
     return {
@@ -29,7 +22,7 @@ export default {
     }
   },
   created () {
-    // this.fetchData()
+    this.fetchData()
   },
   methods: {
     // 数据加载
@@ -45,14 +38,8 @@ export default {
           this.count = '- unknown -'
         }
       })
-    },
-    // 详情页面跳转
-    jump () {
-      navigator.push({
-        url: createURL('2af40e54aeef15228cb221c3cd57ae8f'),
-        animated: 'true'
-      })
     }
+
   }
 }
 </script>
